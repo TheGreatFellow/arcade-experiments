@@ -8,6 +8,8 @@ import {
 } from '@react-three/drei'
 import * as THREE from 'three'
 import { Model as Player } from './Player'
+import { Sky } from '@react-three/drei'
+
 import './App.css'
 import Arcade from './Arcade'
 import Ground from './Ground'
@@ -23,6 +25,7 @@ function App() {
     return (
         <Canvas camera={{ position: [0, 2, 4], fov: 55 }}>
             <Suspense fallback={null}>
+                <Sky sunPosition={[50, 20, 50]} />
                 <group position={[0, -2.5, 0]}>
                     <Arcade />
                 </group>
@@ -37,6 +40,7 @@ function App() {
                 blur={2}
                 far={4.5}
             />
+            <ambientLight intensity={0.5} />
             {/* <OrbitControls /> */}
         </Canvas>
     )

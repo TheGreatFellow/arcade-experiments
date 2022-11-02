@@ -61,7 +61,6 @@ export function Model(props) {
 
     useEffect(() => {
         let action = ''
-        console.log(group.current)
         if (KeyW || KeyS || KeyA || KeyD) {
             action = 'walking'
             console.log('walking')
