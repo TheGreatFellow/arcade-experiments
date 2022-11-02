@@ -12,6 +12,7 @@ import * as THREE from 'three'
 import './App.css'
 import Arcade from './Arcade'
 import { AmbientLight } from 'three'
+import Ground from './Ground'
 
 const ArcadeModel = () => {
     const scene = useGLTF('/arcade-v2.glb')
@@ -22,12 +23,12 @@ function App() {
     const [count, setCount] = useState(0)
 
     return (
-        <Canvas camera={{ position: [0, 2, 4], fov: 55 }}>
-            {/* <pointLight position={[-5, 10, 10]} intensity={1.5} /> */}
+        <Canvas>
             <Suspense fallback={null}>
                 <group position={[0, -2.5, 0]}>
                     <Arcade />
                 </group>
+                <Ground position={[0, -7, 0]} />
                 <Environment preset='city' />
             </Suspense>
             <ContactShadows
