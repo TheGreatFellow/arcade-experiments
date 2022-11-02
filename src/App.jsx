@@ -1,17 +1,15 @@
 import React, { Suspense, useRef, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import {
-    Html,
     Environment,
     useGLTF,
     ContactShadows,
     OrbitControls,
 } from '@react-three/drei'
 import * as THREE from 'three'
-
+import { Model as Player } from './Player'
 import './App.css'
 import Arcade from './Arcade'
-import { AmbientLight } from 'three'
 import Ground from './Ground'
 
 const ArcadeModel = () => {
@@ -23,11 +21,13 @@ function App() {
     const [count, setCount] = useState(0)
 
     return (
-        <Canvas>
+        <Canvas camera={{ position: [0, 2, 4], fov: 55 }}>
             <Suspense fallback={null}>
                 <group position={[0, -2.5, 0]}>
                     <Arcade />
                 </group>
+                <Player scale={5} position={[10, -7, 0]} />
+
                 <Ground position={[0, -7, 0]} />
                 <Environment preset='city' />
             </Suspense>
@@ -37,10 +37,7 @@ function App() {
                 blur={2}
                 far={4.5}
             />
-            <OrbitControls
-            // minPolarAngle={Math.PI / 2.2}
-            // maxPolarAngle={Math.PI / 2.2}
-            />
+            {/* <OrbitControls /> */}
         </Canvas>
     )
 }
