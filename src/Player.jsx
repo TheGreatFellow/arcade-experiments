@@ -7,6 +7,8 @@ import { useGLTF, useAnimations, OrbitControls } from '@react-three/drei'
 import { useInput } from './hooks/useInput'
 import { useFrame, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
+import { useTexture } from '@react-three/drei'
+import grass from './assets/grass.jpg'
 
 export function Model(props) {
     const group = useRef()
@@ -17,7 +19,8 @@ export function Model(props) {
     const currentAction = useRef()
     const controlsRef = useRef()
     const camera = useThree((state) => state.camera)
-
+    const texture_shirt_green = useTexture(grass)
+    texture_shirt_green.wrapS = texture_shirt_green.wrapT = THREE.RepeatWrapping
     let walkDirection = new THREE.Vector3()
     let rotateAngle = new THREE.Vector3(0, 1, 0)
     let rotateQuaterion = new THREE.Quaternion()
@@ -107,56 +110,68 @@ export function Model(props) {
     })
 
     return (
-        <group ref={group} {...props} dispose={null}>
-            <group name='Scene'>
-                <group name='Armature' rotation={[Math.PI, 0, Math.PI]}>
-                    <OrbitControls ref={controlsRef} />
-                    <primitive object={nodes.mixamorig2Hips} />
-                    <primitive object={nodes.Ctrl_Master} />
-                    <primitive object={nodes.Ctrl_ArmPole_IK_Left} />
-                    <primitive object={nodes.Ctrl_Hand_IK_Left} />
-                    <primitive object={nodes.Ctrl_ArmPole_IK_Right} />
-                    <primitive object={nodes.Ctrl_Hand_IK_Right} />
-                    <primitive object={nodes.Ctrl_Foot_IK_Left} />
-                    <primitive object={nodes.Ctrl_LegPole_IK_Left} />
-                    <primitive object={nodes.Ctrl_Foot_IK_Right} />
-                    <primitive object={nodes.Ctrl_LegPole_IK_Right} />
-                    <skinnedMesh
-                        name='Ch22_Body'
-                        geometry={nodes.Ch22_Body.geometry}
-                        material={materials.Ch22_body}
-                        skeleton={nodes.Ch22_Body.skeleton}
-                    />
-                    <skinnedMesh
-                        name='Ch22_Eyelashes'
-                        geometry={nodes.Ch22_Eyelashes.geometry}
-                        material={materials.Ch22_hair}
-                        skeleton={nodes.Ch22_Eyelashes.skeleton}
-                    />
-                    <skinnedMesh
-                        name='Ch22_Hair'
-                        geometry={nodes.Ch22_Hair.geometry}
-                        material={materials.Ch22_hair}
-                        skeleton={nodes.Ch22_Hair.skeleton}
-                    />
-                    <skinnedMesh
-                        name='Ch22_Pants'
-                        geometry={nodes.Ch22_Pants.geometry}
-                        material={materials.Ch22_body}
-                        skeleton={nodes.Ch22_Pants.skeleton}
-                    />
-                    <skinnedMesh
-                        name='Ch22_Shirt'
-                        geometry={nodes.Ch22_Shirt.geometry}
-                        material={materials.Ch22_body}
-                        skeleton={nodes.Ch22_Shirt.skeleton}
-                    />
-                    <skinnedMesh
-                        name='Ch22_Sneakers'
-                        geometry={nodes.Ch22_Sneakers.geometry}
-                        material={materials.Ch22_body}
-                        skeleton={nodes.Ch22_Sneakers.skeleton}
-                    />
+        <group>
+            <group ref={group} {...props} dispose={null}>
+                <group name='Scene'>
+                    <group name='Armature' rotation={[Math.PI, 0, Math.PI]}>
+                        <OrbitControls ref={controlsRef} />
+                        <primitive object={nodes.mixamorig2Hips} />
+                        <primitive object={nodes.Ctrl_Master} />
+                        <primitive object={nodes.Ctrl_ArmPole_IK_Left} />
+                        <primitive object={nodes.Ctrl_Hand_IK_Left} />
+                        <primitive object={nodes.Ctrl_ArmPole_IK_Right} />
+                        <primitive object={nodes.Ctrl_Hand_IK_Right} />
+                        <primitive object={nodes.Ctrl_Foot_IK_Left} />
+                        <primitive object={nodes.Ctrl_LegPole_IK_Left} />
+                        <primitive object={nodes.Ctrl_Foot_IK_Right} />
+                        <primitive object={nodes.Ctrl_LegPole_IK_Right} />
+                        <skinnedMesh
+                            name='Ch22_Body'
+                            geometry={nodes.Ch22_Body.geometry}
+                            material={materials.Ch22_body}
+                            skeleton={nodes.Ch22_Body.skeleton}
+                        />
+                        <skinnedMesh
+                            name='Ch22_Eyelashes'
+                            geometry={nodes.Ch22_Eyelashes.geometry}
+                            material={materials.Ch22_hair}
+                            skeleton={nodes.Ch22_Eyelashes.skeleton}
+                        />
+                        <skinnedMesh
+                            name='Ch22_Hair'
+                            geometry={nodes.Ch22_Hair.geometry}
+                            material={materials.Ch22_hair}
+                            skeleton={nodes.Ch22_Hair.skeleton}
+                            material-roughness={1}
+                        />
+                        <skinnedMesh
+                            name='Ch22_Pants'
+                            geometry={nodes.Ch22_Pants.geometry}
+                            material={materials.Ch22_body}
+                            skeleton={nodes.Ch22_Pants.skeleton}
+                            material-roughness={1}
+                            material-color='white'
+                        />
+                        <skinnedMesh
+                            name='Ch22_Shirt'
+                            geometry={nodes.Ch22_Shirt.geometry}
+                            skeleton={nodes.Ch22_Shirt.skeleton}
+                            material-color='red'
+                        >
+                            <meshStandardMaterial
+                                map={texture_shirt_green}
+                                map-repeat={[4, 4]}
+                                color='green'
+                            />
+                        </skinnedMesh>
+                        <skinnedMesh
+                            name='Ch22_Sneakers'
+                            geometry={nodes.Ch22_Sneakers.geometry}
+                            material={materials.Ch22_body}
+                            skeleton={nodes.Ch22_Sneakers.skeleton}
+                            material-roughness={1}
+                        />
+                    </group>
                 </group>
             </group>
         </group>
