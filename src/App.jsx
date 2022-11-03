@@ -11,7 +11,9 @@ import { Model as Player } from './Player'
 import { Sky } from '@react-three/drei'
 
 import './App.css'
-import Arcade from './Arcade'
+import Arcade1 from './Arcade1'
+import Arcade2 from './Arcade2'
+import Arcade3 from './Arcade3'
 import Ground from './Ground'
 import Screen from './Screen'
 import Screen1 from './Screen1'
@@ -38,22 +40,30 @@ function App() {
                 />
                 <Player scale={5} position={[10, 0, 0]} />
                 {/* <OrbitControls /> */}
-                {/* <group position={[0, -2.5, 0]}>
-                    <Arcade />
+                <group position={[-90, 0, 30]} rotation={[0, Math.PI / 2, 0]}>
+                    <Arcade2 scale={0.08} />
                 </group>
-                <Billboard scale={0.03} position={[50, -5, 50]} />
-                <Screen
-                    position={[30.7, 2.5, 0.5]}
-                    rotation={[0, -1.2, 0]}
-                    scale={(21, 21, 22)}
-                />
-                <Screen1
-                    position={[29.5, 12, 1]}
-                    rotation={[0, -1.2, 0]}
-                    scale={[27.448627904828147, 15.439853196465833, 1]}
-                /> */}
+                <group position={[-90, 0, 20]} rotation={[0, Math.PI / 2, 0]}>
+                    <Arcade1 />
+                </group>
+                <group position={[-90, 0, -20]} rotation={[0, Math.PI / 2, 0]}>
+                    <Arcade3 scale={0.025} />
+                </group>
+                {/*<Billboard scale={0.03} position={[50, -5, 50]} />*/}
+                <group position={[-110, 10, -4]} rotation={[0, Math.PI / 2, 0]}>
+                    <Screen
+                        // position={[30.7, 2.5, 0.5]}
+                        // rotation={[0, -1.2, 0]}
+                        scale={[22, 21, 21]}
+                    />
+                    <Screen1
+                        position={[0, 9.1, 1]}
+                        // rotation={[0, -1.2, 0]}
+                        scale={[27.448627904828147, 15.439853196465833, 1]}
+                    />
+                </group>
                 <Ground position={[0, 0, 0]} />
-                <Environment preset='city' />
+                <Environment preset='night' />
             </Suspense>
 
             <ambientLight intensity={0.5} />

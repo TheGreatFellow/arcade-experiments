@@ -135,20 +135,21 @@ export function Model(props) {
                             geometry={nodes.Ch22_Eyelashes.geometry}
                             material={materials.Ch22_hair}
                             skeleton={nodes.Ch22_Eyelashes.skeleton}
+                            material-roughness={1}
                         />
                         <skinnedMesh
                             name='Ch22_Hair'
                             geometry={nodes.Ch22_Hair.geometry}
                             material={materials.Ch22_hair}
                             skeleton={nodes.Ch22_Hair.skeleton}
-                            material-roughness={1}
+                            material-roughness={0}
                         />
                         <skinnedMesh
                             name='Ch22_Pants'
                             geometry={nodes.Ch22_Pants.geometry}
                             material={materials.Ch22_body}
                             skeleton={nodes.Ch22_Pants.skeleton}
-                            material-roughness={1}
+                            material-roughness={0}
                             material-color='white'
                         />
                         <skinnedMesh
@@ -156,6 +157,7 @@ export function Model(props) {
                             geometry={nodes.Ch22_Shirt.geometry}
                             skeleton={nodes.Ch22_Shirt.skeleton}
                             material-color='red'
+                            material-roughness={0}
                         >
                             <meshStandardMaterial
                                 map={texture_shirt_green}

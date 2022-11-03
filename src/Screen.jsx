@@ -18,10 +18,10 @@ export default function Screen({ ...props }) {
                         geometry={nodes.Tv1_0.geometry}
                         material={materials.Tv1_Material}
                     />
-                    <mesh
+                    {/* <mesh
                         geometry={nodes.Tv1_2.geometry}
                         material={materials.Tv1_Stand_Material}
-                    />
+                    /> */}
                     <mesh
                         geometry={nodes.Tv_screen.geometry}
                         material={materials.Tv1_Glass_Material}
