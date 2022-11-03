@@ -96,7 +96,7 @@ export function Model(props) {
         walkDirection.y = 0
         walkDirection.normalize()
         walkDirection.applyAxisAngle(rotateAngle, newDirectionOffset)
-        var velocity = 10
+        var velocity = 20
         if (currentAction.current !== 'walking') {
             velocity = 0
         }

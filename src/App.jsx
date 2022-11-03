@@ -16,7 +16,8 @@ import Ground from './Ground'
 import Screen from './Screen'
 import Screen1 from './Screen1'
 import Billboard from './Billboard'
-
+import Stadium from './Stadiums'
+import Gallery from './Gallery'
 const ArcadeModel = () => {
     const scene = useGLTF('/arcade-v2.glb')
     return <primitive object={scene.scene} dispose={null} />
@@ -29,11 +30,18 @@ function App() {
         <Canvas camera={{ position: [0, 2, 4], fov: 55 }}>
             <Suspense fallback={null}>
                 <Sky sunPosition={[50, 20, 50]} />
-                <group position={[0, -2.5, 0]}>
+                <Stadium scale={25} />
+                <Gallery
+                    scale={6}
+                    position={[50, 0.1, -20]}
+                    rotation={[0, -Math.PI, 0]}
+                />
+                <Player scale={5} position={[10, 0, 0]} />
+                {/* <OrbitControls /> */}
+                {/* <group position={[0, -2.5, 0]}>
                     <Arcade />
                 </group>
                 <Billboard scale={0.03} position={[50, -5, 50]} />
-                <Player scale={5} position={[10, -7, 0]} />
                 <Screen
                     position={[30.7, 2.5, 0.5]}
                     rotation={[0, -1.2, 0]}
@@ -43,18 +51,12 @@ function App() {
                     position={[29.5, 12, 1]}
                     rotation={[0, -1.2, 0]}
                     scale={[27.448627904828147, 15.439853196465833, 1]}
-                />
-                <Ground position={[0, -7, 0]} />
+                /> */}
+                <Ground position={[0, 0, 0]} />
                 <Environment preset='city' />
             </Suspense>
-            <ContactShadows
-                position={[0, -4.5, 0]}
-                scale={20}
-                blur={2}
-                far={4.5}
-            />
+
             <ambientLight intensity={0.5} />
-            {/* <OrbitControls /> */}
         </Canvas>
     )
 }
