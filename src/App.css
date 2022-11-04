@@ -25,7 +25,7 @@ body {
     height: 660px;
     background: #f0f0f0;
     border-radius: 3px;
-    overflow-y: auto;
+    overflow: hidden;
     background-color: blue;
     padding: 0;
 }
@@ -81,4 +81,17 @@ html,
 }
 .piece-preview {
     background-color: #eee;
+}
+
+.background-tetris {
+    background-color: white;
+}
+
+.score {
+    font-size: 40px;
+    color: white;
+    line-height: 0;
+    position: relative;
+    top: -15px;
+    right: -180px;
 }

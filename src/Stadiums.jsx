@@ -114,7 +114,7 @@ export default function Stadiums({ ...props }) {
             <mesh geometry={nodes.Object_99.geometry} material={materials['Material.001']} position={[132.19, 8.47, 61.5]} />
           </group>
          
-          <group position={[-0.09, 0.001, 2.19]} rotation={[0, 0, Math.PI]} scale={4.47}>
+          <group position={[-0.09, -0.1, 2.19]} rotation={[0, 0, Math.PI]} scale={4.47}>
             <mesh geometry={nodes.Object_40.geometry} material={materials['kich-thuoc-san-bong-da.001']} position={[-0.01, 0, 0.04]} />
           </group>
           <group position={[7.9, 0.03, -0.12]} rotation={[3.14, -1.57, 0]} scale={[0, -0.04, -3.38]}>

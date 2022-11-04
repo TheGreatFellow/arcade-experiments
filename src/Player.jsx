@@ -5,7 +5,7 @@ import { useInput } from './hooks/useInput'
 import { useFrame, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
 import { useTexture } from '@react-three/drei'
-import grass from './assets/grass.jpg'
+import grass from './assets/grass_c.jpg'
 
 export function Model(props) {
     const [dirty, setDirty] = useState(false)
@@ -96,7 +96,7 @@ export function Model(props) {
         walkDirection.y = 0
         walkDirection.normalize()
         walkDirection.applyAxisAngle(rotateAngle, newDirectionOffset)
-        var velocity = 20
+        var velocity = 15
         if (currentAction.current !== 'walking') {
             velocity = 0
         }
@@ -185,22 +185,4 @@ export function Model(props) {
     )
 }
 
-const CubeSelector = () => {
-    // const [hover, setHover] = useState(false)
-    // const [active, setActive] = useState(false)
-    const textur = useTexture(dirt)
-
-    return (
-        <group>
-            <mesh onClick={() => setDirty(!dirty)}>
-                <boxGeometry />
-                <meshStandardMaterial
-                    map={textur}
-                    map-repeat={[10, 10]}
-                    // color={hover === index ? 'hotpink' : 'white'}
-                />
-            </mesh>
-        </group>
-    )
-}
 useGLTF.preload('/player-transformed.glb')

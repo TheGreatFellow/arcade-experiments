@@ -20,6 +20,7 @@ import Screen1 from './Screen1'
 import Billboard from './Billboard'
 import Stadium from './Stadiums'
 import Gallery from './Gallery'
+import Ronaldo from './Ronaldo'
 const ArcadeModel = () => {
     const scene = useGLTF('/arcade-v2.glb')
     return <primitive object={scene.scene} dispose={null} />
@@ -38,6 +39,7 @@ function App() {
                     position={[50, 0.1, -20]}
                     rotation={[0, -Math.PI, 0]}
                 />
+                <Ronaldo scale={30} position={[0, 0, 0]} />
                 <Player scale={5} position={[10, 0, 0]} />
                 {/* <OrbitControls /> */}
                 <group position={[-90, 0, 30]} rotation={[0, Math.PI / 2, 0]}>
@@ -63,7 +65,7 @@ function App() {
                     />
                 </group>
                 <Ground position={[0, 0, 0]} />
-                <Environment preset='night' />
+                <Environment preset='city' />
             </Suspense>
 
             <ambientLight intensity={0.5} />
