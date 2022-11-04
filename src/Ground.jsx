@@ -5,11 +5,11 @@ const Ground = (props) => {
     const texture = useTexture(grass)
     texture.wrapS = texture.wrapT = THREE.RepeatWrapping
     return (
-        <mesh receiveShadow {...props}  rotation-x={-Math.PI / 2}>
+        <mesh receiveShadow {...props} rotation-x={-Math.PI / 2}>
             <planeGeometry args={[1000, 1000]} />
             <meshStandardMaterial
                 map={texture}
-                map-repeat={[240, 240]}
+                map-repeat={[40, 40]}
                 color='green'
             />
         </mesh>

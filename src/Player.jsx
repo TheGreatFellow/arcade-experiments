@@ -5,10 +5,11 @@ import { useInput } from './hooks/useInput'
 import { useFrame, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
 import { useTexture } from '@react-three/drei'
-import grass from './assets/grass_c.jpg'
+import grass from './assets/velvet.jpg'
 
 export function Model(props) {
     const [dirty, setDirty] = useState(false)
+
     const group = useRef()
     const { nodes, materials, animations } = useGLTF('/player-transformed.glb')
     const { actions } = useAnimations(animations, group)
@@ -142,21 +143,18 @@ export function Model(props) {
                             geometry={nodes.Ch22_Hair.geometry}
                             material={materials.Ch22_hair}
                             skeleton={nodes.Ch22_Hair.skeleton}
-                            material-roughness={0}
                         />
                         <skinnedMesh
                             name='Ch22_Pants'
                             geometry={nodes.Ch22_Pants.geometry}
                             material={materials.Ch22_body}
                             skeleton={nodes.Ch22_Pants.skeleton}
-                            material-roughness={0}
                             material-color='white'
                         />
                         <skinnedMesh
                             name='Ch22_Shirt'
                             geometry={nodes.Ch22_Shirt.geometry}
                             skeleton={nodes.Ch22_Shirt.skeleton}
-                            material-color='red'
                             material-roughness={0}
                         >
                             <meshStandardMaterial
@@ -169,16 +167,28 @@ export function Model(props) {
                             geometry={nodes.Ch22_Sneakers.geometry}
                             material={materials.Ch22_body}
                             skeleton={nodes.Ch22_Sneakers.skeleton}
-                            material-roughness={1}
                         />
                     </group>
                 </group>
             </group>
-            <mesh onClick={() => setDirty(!dirty)}>
+            <mesh>
                 <boxGeometry />
                 <meshStandardMaterial
                     map={textur}
                     // color={hover === index ? 'hotpink' : 'white'}
+                />
+            </mesh>
+            <mesh
+                geometry={nodes.Ch22_Shirt.geometry}
+                material-roughness={0}
+                position={[-60, 0, -50]}
+                rotation={[0, Math.PI, 0]}
+                scale={6}
+                onClick={() => setDirty(!dirty)}
+            >
+                <meshStandardMaterial
+                    map={texture_shirt_green}
+                    map-repeat={[4, 4]}
                 />
             </mesh>
         </group>
