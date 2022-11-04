@@ -45,17 +45,19 @@ function App() {
         />
         {others.map(({ connectionId, presence }) => {
           console.log("presence", presence);
-          return (
-            <Man
-              key={connectionId}
-              scale={[5, 5, 5]}
-              position={[
-                presence.position.x,
-                presence.position.y,
-                presence.position.z,
-              ]}
-            />
-          );
+          if (presence.position) {
+            return (
+              <Man
+                key={connectionId}
+                scale={[5, 5, 5]}
+                position={[
+                  presence.position.x,
+                  presence.position.y,
+                  presence.position.z,
+                ]}
+              />
+            );
+          }
         })}
         <Ronaldo scale={30} position={[0, 0, 0]} />
         <Player scale={5} position={[10, 0, 0]} />
