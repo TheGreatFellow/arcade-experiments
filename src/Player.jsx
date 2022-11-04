@@ -5,15 +5,18 @@ import { useInput } from './hooks/useInput'
 import { useFrame, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
 import { useTexture } from '@react-three/drei'
-import grass from './assets/velvet.jpg'
+import grass from './assets/grass_c.jpg'
+import jeans from './assets/jeans.jpg'
+import redJ from './assets/redJ.jpg'
+import velvet from './assets/velvet.jpg'
 
 export function Model(props) {
     const [dirty, setDirty] = useState(false)
-
+    const [textu, setTextu] = useState(grass)
     const group = useRef()
     const { nodes, materials, animations } = useGLTF('/player-transformed.glb')
     const { actions } = useAnimations(animations, group)
-    const textur = useTexture(dirt)
+    const textur = useTexture(textu)
 
     const { KeyW, KeyS, KeyA, KeyD } = useInput()
     const currentAction = useRef()
@@ -158,7 +161,7 @@ export function Model(props) {
                             material-roughness={0}
                         >
                             <meshStandardMaterial
-                                map={texture_shirt_green}
+                                map={textur}
                                 map-repeat={[4, 4]}
                             />
                         </skinnedMesh>
@@ -184,10 +187,49 @@ export function Model(props) {
                 position={[-60, 0, -50]}
                 rotation={[0, Math.PI, 0]}
                 scale={6}
-                onClick={() => setDirty(!dirty)}
+                onClick={() => setTextu(jeans)}
             >
                 <meshStandardMaterial
-                    map={texture_shirt_green}
+                    map={useTexture(jeans)}
+                    map-repeat={[4, 4]}
+                />
+            </mesh>
+            <mesh
+                geometry={nodes.Ch22_Shirt.geometry}
+                material-roughness={0}
+                position={[-50, 0, -50]}
+                rotation={[0, Math.PI, 0]}
+                scale={6}
+                onClick={() => setTextu(redJ)}
+            >
+                <meshStandardMaterial
+                    map={useTexture(redJ)}
+                    map-repeat={[4, 4]}
+                />
+            </mesh>
+            <mesh
+                geometry={nodes.Ch22_Shirt.geometry}
+                material-roughness={0}
+                position={[-40, 0, -50]}
+                rotation={[0, Math.PI, 0]}
+                scale={6}
+                onClick={() => setTextu(velvet)}
+            >
+                <meshStandardMaterial
+                    map={useTexture(velvet)}
+                    map-repeat={[4, 4]}
+                />
+            </mesh>
+            <mesh
+                geometry={nodes.Ch22_Shirt.geometry}
+                material-roughness={0}
+                position={[-30, 0, -50]}
+                rotation={[0, Math.PI, 0]}
+                scale={6}
+                onClick={() => setTextu(grass)}
+            >
+                <meshStandardMaterial
+                    map={useTexture(grass)}
                     map-repeat={[4, 4]}
                 />
             </mesh>

@@ -1,9 +1,15 @@
-src/Arcade2.jsx
-
 src/Stadiums.jsx
 
 src/Arcade1.jsx
 
+src/Arcade2.jsx
+
 src/Arcade3.jsx
+
+src/arcade-games/Arcade1.jsx
+
+src/arcade-games/Arcade2.jsx
+
+src/arcade-games/Arcade3.jsx
 
 src/Ronaldo.jsx
