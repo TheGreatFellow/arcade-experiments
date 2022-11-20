@@ -1,160 +1,198 @@
-@import url("https://rsms.me/inter/inter.css");
+@import url('https://rsms.me/inter/inter.css');
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 html,
 body,
 main,
 #root {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  font-family: inter;
-  color: black;
-  background: #202025;
+    font-family: inter;
+    color: black;
+    background: #202025;
 }
 
 input {
-  height: 3rem;
-  width: 25rem;
-  padding: 1rem;
-  border: 1px solid #202025;
-  border-radius: 0.5rem;
-  background: #202025;
-  color: white;
+    height: 3rem;
+    width: 25rem;
+    padding: 1rem;
+    border: 1px solid #202025;
+    border-radius: 0.5rem;
+    background: #202025;
+    color: white;
 }
 
 code {
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  background: #202025;
-  color: white;
-  cursor: copy;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background: #202025;
+    color: white;
+    cursor: copy;
 }
 
 h1,
 h2,
 p {
-  color: white;
+    color: white;
 }
 
 hr {
-  border: 1px solid #202025;
-  width: 30%;
+    border: 1px solid #202025;
+    width: 30%;
 }
 
 .App {
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .navbar {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  height: 5rem;
-  padding: 0 2rem;
-  top: 0;
-  position: absolute;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 5rem;
+    padding: 0 2rem;
+    top: 0;
+    position: absolute;
 }
 
 .content {
-  width: 525px;
-  height: 660px;
-  background: #f0f0f0;
-  border-radius: 3px;
-  overflow: hidden;
-  background-color: blue;
-  padding: 0;
+    width: 525px;
+    height: 660px;
+    background: #f0f0f0;
+    border-radius: 3px;
+    overflow: hidden;
+    background-color: blue;
+    padding: 0;
 }
 
 .wrapper {
-  padding: 10px;
-  width: 668px;
-  /* height: 432px; */
-  transform: scale(0.5);
-  transform-origin: top left;
+    padding: 10px;
+    width: 668px;
+    /* height: 432px; */
+    transform: scale(0.5);
+    transform-origin: top left;
 }
 
 body,
 html,
 #root {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  background-color: black;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-color: black;
 }
 
 /* Tetris Game Css */
 .game-block {
-  margin: 0;
-  padding: 0;
-  width: 1.5em;
-  height: 1.5em;
-  background-color: beige;
-  border: 1px solid #ddd;
+    margin: 0;
+    padding: 0;
+    width: 1.5em;
+    height: 1.5em;
+    background-color: beige;
+    border: 1px solid #ddd;
 }
 .piece-i {
-  background-color: #ec858b;
+    background-color: #ec858b;
 }
 .piece-j {
-  background-color: #f1b598;
+    background-color: #f1b598;
 }
 .piece-l {
-  background-color: #f8efae;
+    background-color: #f8efae;
 }
 .piece-o {
-  background-color: #b5a677;
+    background-color: #b5a677;
 }
 .piece-s {
-  background-color: #816e56;
+    background-color: #816e56;
 }
 .piece-t {
-  background-color: #b77c72;
+    background-color: #b77c72;
 }
 .piece-z {
-  background-color: #e3be58;
+    background-color: #e3be58;
 }
 .piece-preview {
-  background-color: #eee;
+    background-color: #eee;
 }
 
 .background-tetris {
-  background-color: white;
+    background-color: white;
 }
 
 .score {
-  font-size: 40px;
-  color: white;
-  line-height: 0;
-  position: relative;
-  top: -15px;
-  right: -180px;
+    font-size: 40px;
+    color: white;
+    line-height: 0;
+    position: relative;
+    top: -15px;
+    right: -180px;
 }
 
 .divider {
-  display: flex;
-  align-items: center;
-  width: 60%;
+    display: flex;
+    align-items: center;
+    width: 60%;
 }
 
 .dash {
-  width: 100%;
-  height: 1px;
-  background-color: gray;
-  margin: 10px 10px;
+    width: 100%;
+    height: 1px;
+    background-color: gray;
+    margin: 10px 10px;
+}
+
+.cta-button {
+    height: 45px;
+    border: 0;
+    width: auto;
+    padding-left: 40px;
+    padding-right: 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+}
+
+.connect-wallet-container {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    max-width: 550px;
+}
+
+.connect-wallet-container img {
+    padding-bottom: 20px;
+}
+
+.connect-wallet-button {
+    background-image: linear-gradient(
+        to right,
+        #ff8177 0%,
+        #ff867a 0%,
+        #ff8c7f 21%,
+        #f99185 52%,
+        #cf556c 78%,
+        #b12a5b 100%
+    );
+    background-size: 200% 200%;
+    animation: gradient-animation 4s ease infinite;
 }
