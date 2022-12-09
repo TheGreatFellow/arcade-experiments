@@ -36,7 +36,8 @@ Metaverse will bridge the gap between smartphone screen and actual stadium.
 - Ethereum
 - React Three Fiber
 - Metamask Solidity
-- Blender Vite
+- Blender
+- Vite
 - Blockchain
 
 ## Future Enhancements 🔮
