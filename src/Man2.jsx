@@ -8,6 +8,7 @@ import { useInput } from "./hooks/useInput";
 import { useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 import { useUpdateMyPresence } from "./liveblocks.config";
+import { useNavigate } from "react-router";
 
 export function Model(props) {
   const group = useRef();
@@ -17,6 +18,7 @@ export function Model(props) {
   const { isPlaying, x, z, offset } = props;
 
   const updatePresence = useUpdateMyPresence();
+  const navigate = useNavigate();
 
   useEffect(() => {
     actions["Armature|mixamo.com|Layer0"].play();
@@ -113,13 +115,32 @@ export function Model(props) {
       dispose={null}
       onUpdate={(self) => {
         if (isPlaying && camera && group.current) {
-          // console.log(self.position);
           if (
             self.position.x < -227 &&
             self.position.z < -4 &&
             self.position.z > -16
           ) {
-            console.log("Portal 1");
+            navigate("/games/3");
+          }
+          if (
+            self.position.x > -11.5 &&
+            self.position.x < 7 &&
+            self.position.z < -138
+          ) {
+            navigate("/arcade/3");
+          }
+          if (
+            self.position.x > 228 &&
+            self.position.z < 4 &&
+            self.position.z > -15
+          ) {
+            navigate("/gallery/3");
+          }
+          if (
+            self.position.x < 8 &&
+            self.position.x > -12 &&
+            self.position.z > 138
+          ) {
             navigate("/merchandise");
           }
           let angleYCameraDirection = Math.atan2(

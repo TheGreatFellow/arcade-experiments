@@ -24,7 +24,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           }
         />
         <Route
-          path="/arcade"
+          path="/arcade/:id"
           element={
             <RoomProvider id="arcade" initialPresence={{ position: null }}>
               <ClientSideSuspense fallback={<div>Loading...</div>}>
@@ -34,7 +34,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           }
         />
         <Route
-          path="/gallery"
+          path="/gallery/:id"
           element={
             <RoomProvider id="gallery" initialPresence={{ position: null }}>
               <ClientSideSuspense fallback={<div>Loading...</div>}>
