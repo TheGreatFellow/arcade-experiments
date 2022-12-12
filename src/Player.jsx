@@ -42,42 +42,8 @@ export function Model(props) {
       console.warn("MintCharacterAction Error:", error);
       setMintingCharacter(false);
     }
-  };
-  const { KeyW, KeyS, KeyA, KeyD } = useInput();
-  const currentAction = useRef();
-  const controlsRef = useRef();
-  const camera = useThree((state) => state.camera);
-  const texture_shirt_green = useTexture(dirty ? dirt : grass);
-  texture_shirt_green.wrapS = texture_shirt_green.wrapT = THREE.RepeatWrapping;
-  let walkDirection = new THREE.Vector3();
-  let rotateAngle = new THREE.Vector3(0, 1, 0);
-  let rotateQuaterion = new THREE.Quaternion();
-  let cameraTarget = new THREE.Vector3();
 
-  const updatePresence = useUpdateMyPresence();
-
-  const directionOffset = ({ KeyW, KeyS, KeyA, KeyD }) => {
-    let directionOffset = 0;
-    if (KeyW) {
-      if (KeyA) {
-        directionOffset = Math.PI / 4;
-      } else if (KeyD) {
-        directionOffset = -Math.PI / 4;
-      }
-    } else if (KeyS) {
-      if (KeyA) {
-        directionOffset = (Math.PI / 4) * 3;
-      } else if (KeyD) {
-        directionOffset = (-Math.PI / 4) * 3;
-      } else {
-        directionOffset = Math.PI;
-      }
-    } else if (KeyA) {
-      directionOffset = Math.PI / 2;
-    } else if (KeyD) {
-      directionOffset = -Math.PI / 2;
-    }
-    return directionOffset;
+    // return directionOffset;
   };
 
   const updateCameraTarget = (moveX, moveZ) => {
@@ -335,5 +301,4 @@ export function Model(props) {
     </group>
   );
 }
-
 useGLTF.preload("/player-transformed.glb");

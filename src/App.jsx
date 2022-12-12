@@ -24,9 +24,16 @@ import Billboard from "./Billboard";
 import Stadium from "./Stadiums";
 import Ronaldo from "./Ronaldo";
 import { Model as Portal } from "./Nether_portal";
+import { Model as Man1 } from "./Man1";
+import { Model as Man2 } from "./Man2";
+import { Model as Man3 } from "./Man3";
+import { Model as Woman } from "./Woman";
 import { Model as Exit } from "./Exit";
 import { useOthers } from "./liveblocks.config.jsx";
 import { Peer } from "peerjs";
+import { CONTRACT_ADDRESS, transformCharacterData } from "./constants";
+import myEpicGame from "./utils/MyEpicGame.json";
+import { ethers } from "ethers";
 import { getAvatar } from "./constants";
 
 const ArcadeModel = () => {
@@ -36,6 +43,10 @@ const ArcadeModel = () => {
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(true);
+  const [currentAccount, setCurrentAccount] = useState(null);
+  const [characterNFT, setCharacterNFT] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+
   const [count, setCount] = useState(0);
   const others = useOthers();
   const [peerId, setPeerId] = useState("");
