@@ -12,7 +12,7 @@ export function Model(props) {
   const { actions } = useAnimations(animations, group);
 
   useEffect(() => {
-    actions["idle"].play();
+    console.log(actions);
   }, [actions]);
 
   return (

@@ -10,6 +10,7 @@ import jeans from "./assets/jeans.jpg";
 import redJ from "./assets/redJ.jpg";
 import velvet from "./assets/velvet.jpg";
 import { useUpdateMyPresence } from "./liveblocks.config";
+import { useNavigate } from "react-router-dom";
 
 export function Model(props) {
   const [dirty, setDirty] = useState(false);
@@ -29,6 +30,8 @@ export function Model(props) {
   let rotateAngle = new THREE.Vector3(0, 1, 0);
   let rotateQuaterion = new THREE.Quaternion();
   let cameraTarget = new THREE.Vector3();
+
+  const navigate = useNavigate();
 
   const updatePresence = useUpdateMyPresence();
 
@@ -122,7 +125,15 @@ export function Model(props) {
         {...props}
         dispose={null}
         onUpdate={(self) => {
-          console.log(self.position);
+          // console.log(self.position);
+          if (
+            self.position.x < -227 &&
+            self.position.z < -4 &&
+            self.position.z > -16
+          ) {
+            console.log("Portal 1");
+            navigate("/merchandise");
+          }
           return updatePresence({
             position: {
               x: self.position.x,
