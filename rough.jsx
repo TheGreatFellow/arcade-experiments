@@ -36,7 +36,7 @@ export function Model(props) {
                 await mintTxn.wait()
                 console.log('mintTxn:', mintTxn)
                 setMintingCharacter(false)
-                setTextu(jeans)
+                setTextu(characterId)
             }
         } catch (error) {
             console.warn('MintCharacterAction Error:', error)
@@ -305,7 +305,7 @@ export function Model(props) {
                 position={[-60, 0, -50]}
                 rotation={[0, Math.PI, 0]}
                 scale={6}
-                onClick={mintCharacterNFTAction(0)}
+                onClick={mintCharacterNFTAction(jeans)}
             >
                 <meshStandardMaterial
                     map={useTexture(jeans)}
@@ -318,7 +318,7 @@ export function Model(props) {
                 position={[-50, 0, -50]}
                 rotation={[0, Math.PI, 0]}
                 scale={6}
-                onClick={() => setTextu(redJ)}
+                onClick={mintCharacterNFTAction(redJ)}
             >
                 <meshStandardMaterial
                     map={useTexture(redJ)}
@@ -331,7 +331,7 @@ export function Model(props) {
                 position={[-40, 0, -50]}
                 rotation={[0, Math.PI, 0]}
                 scale={6}
-                onClick={() => setTextu(velvet)}
+                onClick={mintCharacterNFTAction(velvet)}
             >
                 <meshStandardMaterial
                     map={useTexture(velvet)}
