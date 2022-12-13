@@ -4,6 +4,7 @@ import React from "react";
 import Gallery from "./Gallery";
 import { Model as Player } from "./Player";
 import { getAvatar } from "./constants";
+import { useParams } from "react-router";
 
 const GalleryPage = () => {
   const { id } = useParams();

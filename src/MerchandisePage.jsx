@@ -61,7 +61,10 @@ const MerchandisePage = () => {
             Unique Code: #986565
           </p>
           <br />
-          <button style={{ fontSize: "16px", width: "100%" }}>
+          <button
+            style={{ fontSize: "16px", width: "100%" }}
+            onClick={() => mintCharacterNFTAction("654")}
+          >
             Mint Unique NFT
           </button>
         </div>
@@ -79,7 +82,10 @@ const MerchandisePage = () => {
             Unique Code: #988752
           </p>
           <br />
-          <button style={{ fontSize: "16px", width: "100%" }}>
+          <button
+            style={{ fontSize: "16px", width: "100%" }}
+            onClick={() => mintCharacterNFTAction("654")}
+          >
             Mint Unique NFT
           </button>
         </div>
@@ -97,7 +103,10 @@ const MerchandisePage = () => {
             Unique Code: #989672
           </p>
           <br />
-          <button style={{ fontSize: "16px", width: "100%" }}>
+          <button
+            style={{ fontSize: "16px", width: "100%" }}
+            onClick={() => mintCharacterNFTAction("654")}
+          >
             Mint Unique NFT
           </button>
         </div>
@@ -112,7 +121,7 @@ const MerchandisePage = () => {
             Price: 0.0001 ETH
           </p>
           <p style={{ color: "black", margin: "0", fontSize: "14px" }}>
-            Unique Code: #982876
+            `` Unique Code: #982876
           </p>
           <br />
           <button
