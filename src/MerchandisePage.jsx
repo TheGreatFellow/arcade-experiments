@@ -1,7 +1,49 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./MerchandisePage.css";
+import { CONTRACT_ADDRESS, transformCharacterData } from "./constants";
+import myEpicGame from "./utils/MyEpicGame.json";
+import { ethers } from "ethers";
 
 const MerchandisePage = () => {
+  const [gameContract, setGameContract] = useState(null);
+  const [mintingCharacter, setMintingCharacter] = useState(false);
+
+  useEffect(() => {
+    const { ethereum } = window;
+
+    if (ethereum) {
+      const provider = new ethers.providers.Web3Provider(ethereum);
+      const signer = provider.getSigner();
+      const gameContract = new ethers.Contract(
+        CONTRACT_ADDRESS,
+        myEpicGame.abi,
+        signer
+      );
+      setGameContract(gameContract);
+      console.log(gameContract);
+    } else {
+      console.log("Ethereum object not found");
+    }
+  }, []);
+
+  const mintCharacterNFTAction = async (characterId) => {
+    console.log("in");
+    try {
+      if (gameContract) {
+        setMintingCharacter(true);
+        console.log("Minting Hero in progress...");
+        const mintTxn = await gameContract.mintCharacterNFT(0);
+        await mintTxn.wait();
+        console.log("mintTxn:", mintTxn);
+        setMintingCharacter(false);
+        setTextu(characterId);
+      }
+    } catch (error) {
+      console.warn("MintCharacterAction Error:", error);
+      setMintingCharacter(false);
+    }
+  };
+
   return (
     <div className="container">
       <div className="grid-container">
@@ -73,7 +115,10 @@ const MerchandisePage = () => {
             Unique Code: #982876
           </p>
           <br />
-          <button style={{ fontSize: "16px", width: "100%" }}>
+          <button
+            style={{ fontSize: "16px", width: "100%" }}
+            onClick={() => mintCharacterNFTAction("654")}
+          >
             Mint Unique NFT
           </button>
         </div>
