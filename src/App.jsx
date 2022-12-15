@@ -216,8 +216,8 @@ function App() {
           {/* <Environment preset="sunset" /> */}
         </Suspense>
         <ambientLight intensity={1} />
-        <group position={[-28, -10, -140]}>
-          <Portal scale={6} />
+        <group position={[7, -10, -140]}>
+          <Portal scale={5} position={[28,24,0]}/>
           <Exit scale={0.008} position={[26, 50.5, 3.7]} />
           <Html position={[26, 43, 3.7]} transform>
             <h1
@@ -231,7 +231,7 @@ function App() {
           </Html>
         </group>
         <group position={[-28, -10, 140]}>
-          <Portal scale={6} />
+          <Portal scale={5} position={[28,24,0]}/>
           <Exit
             scale={0.008}
             position={[26, 50.5, -3.8]}
@@ -249,7 +249,7 @@ function App() {
           </Html>
         </group>
         <group position={[230, -10, 20]}>
-          <Portal scale={6} rotation={[0, Math.PI / 2, 0]} />
+          <Portal scale={5} rotation={[0, Math.PI / 2, 0]} position={[0,24,-23]} />
           <Exit
             scale={0.008}
             position={[-4, 50.5, -26]}
@@ -271,7 +271,7 @@ function App() {
           </Html>
         </group>
         <group position={[-230, -10, 20]} rotation={[0, Math.PI / 2, 0]}>
-          <Portal scale={6} />
+          <Portal scale={5} position={[28,24,0]}/>
           <Exit scale={0.008} position={[26, 50.5, 3.7]} />
           <Html position={[26, 43, 3.7]} transform>
             <h1
