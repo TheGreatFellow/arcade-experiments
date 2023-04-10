@@ -8,11 +8,16 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ArcadePage from "./ArcadePage";
 import GalleryPage from "./GalleryPage";
 import MerchandisePage from "./MerchandisePage";
+import LandingPage from "./LandingPage";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
+      <Route
+          path="/"
+          element={<LandingPage />}
+        />
         <Route
           path="/:id"
           element={

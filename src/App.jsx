@@ -1,6 +1,7 @@
 import React, { Suspense, useRef, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useParams } from "react-router-dom";
+// import { Room, RoomEvent, Participant } from "livekit-client";
 
 import {
   Environment,
@@ -29,6 +30,7 @@ import { Model as Man2 } from "./Man2";
 import { Model as Man3 } from "./Man3";
 import { Model as Woman } from "./Woman";
 import { Model as Exit } from "./Exit";
+import { Model as Classroom } from "./Classroom"
 import { useOthers } from "./liveblocks.config.jsx";
 import { Peer } from "peerjs";
 import { CONTRACT_ADDRESS, transformCharacterData } from "./constants";
@@ -46,7 +48,6 @@ function App() {
   const [currentAccount, setCurrentAccount] = useState(null);
   const [characterNFT, setCharacterNFT] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-
   const [count, setCount] = useState(0);
   const others = useOthers();
   const [peerId, setPeerId] = useState("");
@@ -57,54 +58,106 @@ function App() {
 
   const { id } = useParams();
 
-  useEffect(() => {
-    const peer = new Peer();
+  // const room = new Room({
+  //   // automatically manage subscribed video quality
+  //   adaptiveStream: true,
 
-    peer.on("open", (id) => {
-      setPeerId(id);
-    });
+  //   // optimize publishing bandwidth and CPU for published tracks
+  //   dynacast: true,
+  // });
 
-    peer.on("call", (call) => {
-      setLoggedIn(true);
-      var getUserMedia =
-        navigator.getUserMedia ||
-        navigator.webkitGetUserMedia ||
-        navigator.mozGetUserMedia;
+  // room
+  //   .on(RoomEvent.TrackSubscribed, handleTrackSubscribed)
+  //   .on(RoomEvent.TrackUnsubscribed, handleTrackUnsubscribed)
+  //   .on(RoomEvent.LocalTrackUnpublished, handleLocalTrackUnpublished);
 
-      getUserMedia({ audio: true }, (mediaStream) => {
-        call.answer(mediaStream);
-        call.on("stream", function (remoteStream) {
-          remoteAudioRef.current.srcObject = remoteStream;
-          remoteAudioRef.current.play();
-        });
-      });
-    });
+  // function handleTrackSubscribed(track, publication, participant) {
+  //   // attach it to a new HTMLVideoElement or HTMLAudioElement
+  //   console.log(participant);
+  //   if (track.kind === "audio") {
+  //     const element = track.attach();
+  //     this.appendChild(element);
+  //   }
+  // }
 
-    peerInstance.current = peer;
-  }, []);
+  // function handleTrackUnsubscribed(track, publication, participant) {
+  //   // remove tracks from all attached elements
+  //   track.detach();
+  // }
 
-  const call = (remotePeerId) => {
-    var getUserMedia =
-      navigator.getUserMedia ||
-      navigator.webkitGetUserMedia ||
-      navigator.mozGetUserMedia;
+  // function handleLocalTrackUnpublished(track, participant) {
+  //   // when local tracks are ended, update UI to remove them from rendering
+  //   track.detach();
+  // }
 
-    getUserMedia({ audio: true }, (mediaStream) => {
-      const call = peerInstance.current.call(remotePeerId, mediaStream);
+  // useEffect(() => {
+  //   // connect to room
+  //   room
+  //     .connect(
+  //       "wss://metaplex.livekit.cloud",
+  //       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzExNzgxOTEsImlzcyI6IkFQSUtHZDZzcmZGTUpvMiIsIm5iZiI6MTY3MTA5MTc5MSwic3ViIjoidXNlci1iYzNiNTcwNyIsInZpZGVvIjp7InJvb20iOiJyb29tLTE5MGM3NjMxIiwicm9vbUpvaW4iOnRydWV9fQ.PjJhYV9Nas_bLy6up3eyc601suykudKdCyXNJbh4f78"
+  //     )
+  //     .then(() => {
+  //       console.log("connected to room", room.name);
+  //       room.localParticipant.enableCameraAndMicrophone();
+  //     });
+  // }, []);
 
-      call.on("stream", (remoteStream) => {
-        remoteAudioRef.current.srcObject = remoteStream;
-        remoteAudioRef.current.play();
-      });
-    });
-  };
+  // useEffect(() => {
+  //   const peer = new Peer();
+
+  //   peer.on("open", (id) => {
+  //     setPeerId(id);
+  //   });
+
+  //   peer.on("call", (call) => {
+  //     setLoggedIn(true);
+  //     var getUserMedia =
+  //       navigator.getUserMedia ||
+  //       navigator.webkitGetUserMedia ||
+  //       navigator.mozGetUserMedia;
+
+  //     getUserMedia({ audio: true }, (mediaStream) => {
+  //       call.answer(mediaStream);
+  //       call.on("stream", function (remoteStream) {
+  //         remoteAudioRef.current.srcObject = remoteStream;
+  //         remoteAudioRef.current.play();
+  //       });
+  //     });
+  //   });
+
+  //   peerInstance.current = peer;
+  // }, []);
+
+  // const call = (remotePeerId) => {
+  //   var getUserMedia =
+  //     navigator.getUserMedia ||
+  //     navigator.webkitGetUserMedia ||
+  //     navigator.mozGetUserMedia;
+
+  //   getUserMedia({ audio: true }, (mediaStream) => {
+  //     const call = peerInstance.current.call(remotePeerId, mediaStream);
+
+  //     call.on("stream", (remoteStream) => {
+  //       remoteAudioRef.current.srcObject = remoteStream;
+  //       remoteAudioRef.current.play();
+  //     });
+  //   });
+  // };
 
   return (
     <>
-      <audio ref={remoteAudioRef} autoPlay />
+      {/* <audio ref={remoteAudioRef} autoPlay /> */}
       <Canvas camera={{ position: [0, 2, 4], fov: 55 }}>
-        <Suspense fallback={null}>
-          <Sky sunPosition={[50, 20, 50]} />
+        <Suspense
+          fallback={
+            <Html>
+              <h1>Loading...</h1>
+            </Html>
+          }
+        >
+          <Classroom/>
+          {/* <Sky sunPosition={[50, 20, 50]} />
           <Stadium scale={70} position={[0, 7, 0]} />
           {others.map(({ connectionId, presence }) => {
             console.log("presence", presence);
@@ -132,12 +185,12 @@ function App() {
                 })
               );
             }
-          })}
+          })} */}
           {/* <Ronaldo scale={30} position={[0, 0, 0]} /> */}
           {/* <Portal scale={5} position={[-50, -8, -100]} /> */}
           {/* <Player scale={5} position={[10, 0, 0]} /> */}
           {/* <Man1 scale={5} position={[0, 0, 0]} isPlaying /> */}
-          {getAvatar(id, true, { scale: 5, peerId })}
+          {/* {getAvatar(id, true, { scale: 5, peerId })} */}
           {/* <Woman scale={5} position={[5, 0, 0]} /> */}
           {/* <Man2 scale={5} position={[20, 0, 0]} />
               <Man3 scale={5} position={[15, 0, 0]} /> */}
@@ -152,7 +205,7 @@ function App() {
                 <Arcade3 scale={0.025} />
               </group> */}
           {/*<Billboard scale={0.03} position={[50, -5, 50]} />*/}
-          <group scale={2} position={[0, 40, -30.5]} rotation={[0, Math.PI, 0]}>
+          {/* <group scale={2} position={[0, 40, -30.5]} rotation={[0, Math.PI, 0]}>
             <Screen
               // position={[30.7, 2.5, 0.5]}
               // rotation={[0, -1.2, 0]}
@@ -211,12 +264,14 @@ function App() {
               // rotation={[0, -1.2, 0]}
               scale={[27.448627904828147, 15.439853196465833, 1]}
             />
-          </group>
+          </group> */}
           {/* <Ground position={[0, 0, 0]} /> */}
           {/* <Environment preset="sunset" /> */}
         </Suspense>
+        <OrbitControls/>
+        <pointLight/>
         <ambientLight intensity={1} />
-        <group position={[-28, -10, -140]}>
+        {/*<group position={[-28, -10, -140]}>
           <Portal scale={6} />
           <Exit scale={0.008} position={[26, 50.5, 3.7]} />
           <Html position={[26, 43, 3.7]} transform>
@@ -283,7 +338,7 @@ function App() {
               Games
             </h1>
           </Html>
-        </group>
+        </group> */}
       </Canvas>
     </>
     // )
@@ -518,7 +573,6 @@ function App() {
 //               })}
 //               <Ronaldo scale={30} position={[0, 0, 0]} />
 //               <Player scale={5} position={[10, 0, 0]} />
-//               {/* <OrbitControls /> */}
 //               <group position={[-90, 0, 30]} rotation={[0, Math.PI / 2, 0]}>
 //                 <Arcade2 scale={0.08} />
 //               </group>

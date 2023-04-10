@@ -1,0 +1,9 @@
+.container {
+    height: 100vh;
+    background-color: white;
+}
+
+.connect-btn {
+    background-color: white;
+    padding: 5px 10px;
+}
