@@ -14,15 +14,12 @@ import { Model as Player } from "./Player";
 import { Sky } from "@react-three/drei";
 
 import "./App.css";
-import Arcade1 from "./arcade-games/Arcade1";
-import Arcade2 from "./arcade-games/Arcade2";
-import Arcade3 from "./arcade-games/Arcade3";
+
 import Ground from "./Ground";
 import Screen from "./Screen";
 import Screen1 from "./Screen1";
 import Billboard from "./Billboard";
 import Stadium from "./Stadiums";
-import Ronaldo from "./Ronaldo";
 import { Model as Portal } from "./Nether_portal";
 import { Model as Man1 } from "./Man1";
 import { Model as Man2 } from "./Man2";
