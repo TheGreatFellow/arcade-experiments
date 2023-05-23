@@ -8,15 +8,25 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ArcadePage from "./ArcadePage";
 import GalleryPage from "./GalleryPage";
 import MerchandisePage from "./MerchandisePage";
-import LandingPage from "./LandingPage";
+import ConfPage from "./ConfPage";
+import AudPage from "./AudPage";
+import LibPage from "./LibPage";
+import PoolPage from "./PoolPage";
+import Test from "./test/Test";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-      <Route
+        <Route
           path="/"
-          element={<LandingPage />}
+          element={
+            <RoomProvider id="test" initialPresence={{ position: [0, -1, 0] }}>
+              <ClientSideSuspense fallback={<div>Loading...</div>}>
+                {() => <Test />}
+              </ClientSideSuspense>
+            </RoomProvider>
+          }
         />
         <Route
           path="/:id"
@@ -39,21 +49,41 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           }
         />
         <Route
-          path="/gallery/:id"
+          path="/games/:id"
           element={
-            <RoomProvider id="gallery" initialPresence={{ position: null }}>
+            <RoomProvider id="game" initialPresence={{ position: null }}>
               <ClientSideSuspense fallback={<div>Loading...</div>}>
-                {() => <GalleryPage />}
+                {() => <ConfPage />}
               </ClientSideSuspense>
             </RoomProvider>
           }
         />
         <Route
-          path="/merchandise"
+          path="/gallery/:id"
+          element={
+            <RoomProvider id="gallery" initialPresence={{ position: null }}>
+              <ClientSideSuspense fallback={<div>Loading...</div>}>
+                {() => <LibPage />}
+              </ClientSideSuspense>
+            </RoomProvider>
+          }
+        />
+        <Route
+          path="/pool/:id"
+          element={
+            <RoomProvider id="pool" initialPresence={{ position: null }}>
+              <ClientSideSuspense fallback={<div>Loading...</div>}>
+                {() => <PoolPage />}
+              </ClientSideSuspense>
+            </RoomProvider>
+          }
+        />
+        <Route
+          path="/merchandise/:id"
           element={
             <RoomProvider id="merchandise" initialPresence={{ position: null }}>
               <ClientSideSuspense fallback={<div>Loading...</div>}>
-                {() => <MerchandisePage />}
+                {() => <AudPage />}
               </ClientSideSuspense>
             </RoomProvider>
           }

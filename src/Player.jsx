@@ -24,6 +24,7 @@ export function Model(props) {
   const { nodes, materials, animations } = useGLTF("/player-transformed.glb");
   const { actions } = useAnimations(animations, group);
   const textur = useTexture(textu);
+  const { KeyW, KeyA, KeyS, KeyD } = useInput();
 
   const mintCharacterNFTAction = (characterId) => async () => {
     console.log("in");

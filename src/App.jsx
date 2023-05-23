@@ -15,22 +15,19 @@ import { Model as Player } from "./Player";
 import { Sky } from "@react-three/drei";
 
 import "./App.css";
-import Arcade1 from "./arcade-games/Arcade1";
-import Arcade2 from "./arcade-games/Arcade2";
-import Arcade3 from "./arcade-games/Arcade3";
+
 import Ground from "./Ground";
 import Screen from "./Screen";
 import Screen1 from "./Screen1";
 import Billboard from "./Billboard";
 import Stadium from "./Stadiums";
-import Ronaldo from "./Ronaldo";
 import { Model as Portal } from "./Nether_portal";
 import { Model as Man1 } from "./Man1";
 import { Model as Man2 } from "./Man2";
 import { Model as Man3 } from "./Man3";
 import { Model as Woman } from "./Woman";
 import { Model as Exit } from "./Exit";
-import { Model as Classroom } from "./Classroom"
+import { Model as Classroom } from "./Classroom";
 import { useOthers } from "./liveblocks.config.jsx";
 import { Peer } from "peerjs";
 import { CONTRACT_ADDRESS, transformCharacterData } from "./constants";
@@ -156,7 +153,7 @@ function App() {
             </Html>
           }
         >
-          <Classroom/>
+          <Classroom />
           {/* <Sky sunPosition={[50, 20, 50]} />
           <Stadium scale={70} position={[0, 7, 0]} />
           {others.map(({ connectionId, presence }) => {
@@ -268,11 +265,11 @@ function App() {
           {/* <Ground position={[0, 0, 0]} /> */}
           {/* <Environment preset="sunset" /> */}
         </Suspense>
-        <OrbitControls/>
-        <pointLight/>
+        <OrbitControls />
+        <pointLight />
         <ambientLight intensity={1} />
-        {/*<group position={[-28, -10, -140]}>
-          <Portal scale={6} />
+        <group position={[7, -10, -140]}>
+          <Portal scale={5} position={[28, 24, 0]} />
           <Exit scale={0.008} position={[26, 50.5, 3.7]} />
           <Html position={[26, 43, 3.7]} transform>
             <h1
@@ -286,7 +283,7 @@ function App() {
           </Html>
         </group>
         <group position={[-28, -10, 140]}>
-          <Portal scale={6} />
+          <Portal scale={5} position={[28, 24, 0]} />
           <Exit
             scale={0.008}
             position={[26, 50.5, -3.8]}
@@ -304,7 +301,11 @@ function App() {
           </Html>
         </group>
         <group position={[230, -10, 20]}>
-          <Portal scale={6} rotation={[0, Math.PI / 2, 0]} />
+          <Portal
+            scale={5}
+            rotation={[0, Math.PI / 2, 0]}
+            position={[0, 24, -23]}
+          />
           <Exit
             scale={0.008}
             position={[-4, 50.5, -26]}
@@ -326,7 +327,7 @@ function App() {
           </Html>
         </group>
         <group position={[-230, -10, 20]} rotation={[0, Math.PI / 2, 0]}>
-          <Portal scale={6} />
+          <Portal scale={5} position={[28, 24, 0]} />
           <Exit scale={0.008} position={[26, 50.5, 3.7]} />
           <Html position={[26, 43, 3.7]} transform>
             <h1
@@ -338,7 +339,7 @@ function App() {
               Games
             </h1>
           </Html>
-        </group> */}
+        </group>
       </Canvas>
     </>
     // )

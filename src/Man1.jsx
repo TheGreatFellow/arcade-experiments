@@ -11,7 +11,8 @@ import { useUpdateMyPresence } from "./liveblocks.config";
 import { useNavigate } from "react-router";
 
 export function Model(props) {
-  const { isPlaying, peerId, x, z, offset } = props;
+  // const { isPlaying, peerId, x, z, offset } = props;
+  const isPlaying = props.isPlaying;
 
   const updatePresence = useUpdateMyPresence();
   const navigate = useNavigate();
@@ -34,12 +35,12 @@ export function Model(props) {
   let rotateQuaterion = new THREE.Quaternion();
   let cameraTarget = new THREE.Vector3();
 
-  if (!isPlaying && group.current && x && z && offset) {
-    group.current.position.x = x;
-    group.current.position.z = z;
-    rotateQuaterion.setFromAxisAngle(rotateAngle, offset);
-    group.current.quaternion.rotateTowards(rotateQuaterion, 0.2);
-  }
+  // if (!isPlaying && group.current && x && z && offset) {
+  //   group.current.position.x = x;
+  //   group.current.position.z = z;
+  //   rotateQuaterion.setFromAxisAngle(rotateAngle, offset);
+  //   group.current.quaternion.rotateTowards(rotateQuaterion, 0.2);
+  // }
 
   const directionOffset = ({ KeyW, KeyS, KeyA, KeyD }) => {
     let directionOffset = 0;
@@ -148,12 +149,15 @@ export function Model(props) {
             camera.position.z - group.current.position.z
           );
           let newDirectionOffset = directionOffset({ KeyW, KeyS, KeyA, KeyD });
+          // return updatePresence({
+          //   id: "2",
+          //   peerId,
+          //   x: self.position.x,
+          //   z: self.position.z,
+          //   offset: angleYCameraDirection + newDirectionOffset,
+          // });
           return updatePresence({
-            id: "2",
-            peerId,
-            x: self.position.x,
-            z: self.position.z,
-            offset: angleYCameraDirection + newDirectionOffset,
+            position: [self.position.x, -1, self.position.z],
           });
         }
       }}
