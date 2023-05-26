@@ -8,7 +8,9 @@ Title: LowPoly Modern Auditorium Classroom
 */
 
 import React, { useRef } from 'react'
-import { useGLTF } from '@react-three/drei'
+import { useGLTF,Html } from '@react-three/drei'
+import WhiteBoardContainer from './Components/whiteboard/container/Container'
+
 
 export function Model(props) {
   const { nodes, materials } = useGLTF('/auditorium.glb')
@@ -17,8 +19,12 @@ export function Model(props) {
       <mesh geometry={nodes.Object_4.geometry} material={materials.Base} />
       <mesh geometry={nodes.Object_5.geometry} material={materials.Base} />
       <mesh geometry={nodes.Object_6.geometry} material={materials.Base} />
+
       <mesh geometry={nodes.Object_7.geometry} material={materials.EmmWhite} />
       <mesh geometry={nodes.Object_8.geometry} material={materials.Base} />
+      {/* <Html className="content" transform occlude  position={[-165, 50 -10]} scale={[.001,.001,.001]} >
+        <WhiteBoardContainer/>
+      </Html> */}
     </group>
   )
 }

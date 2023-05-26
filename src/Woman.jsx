@@ -164,7 +164,13 @@ export function Model(props) {
           rotation={[Math.PI / 2, 0, Math.PI]}
           scale={0.01}
         >
-          {isPlaying && <OrbitControls ref={controlsRef} />}
+          {isPlaying && <OrbitControls
+          // enableRotate="false"
+           ref={controlsRef}
+          //  enablePan={false} 
+          //  enabled={false}
+          //  enableZoom="true"
+           />}
           <primitive object={nodes.mixamorigHips} />
           <skinnedMesh
             name="Ch21_Body"
