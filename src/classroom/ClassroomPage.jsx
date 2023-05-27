@@ -1,11 +1,11 @@
 import { Canvas } from "@react-three/fiber";
-import React, { useState, useEffect, Suspense } from "react";
-import { Model as Classroom } from "../Classroom";
+import React, { Suspense } from "react";
+import { Model as Classroom } from "./Classroom";
 import { Model as Man1 } from "../Man1";
 import { Model as Man } from "../Man";
 import { useOthers } from "../liveblocks.config";
 
-function Test() {
+function ClassroomPage() {
   const others = useOthers();
 
   return (
@@ -24,4 +24,4 @@ function Test() {
   );
 }
 
-export default Test;
+export default ClassroomPage;

@@ -27,7 +27,7 @@ import { Model as Man2 } from "./Man2";
 import { Model as Man3 } from "./Man3";
 import { Model as Woman } from "./Woman";
 import { Model as Exit } from "./Exit";
-import { Model as Classroom } from "./Classroom";
+import { Model as Classroom } from "./classroom/Classroom";
 import { useOthers } from "./liveblocks.config.jsx";
 import { Peer } from "peerjs";
 import { CONTRACT_ADDRESS, transformCharacterData } from "./constants";

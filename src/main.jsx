@@ -12,18 +12,37 @@ import ConfPage from "./ConfPage";
 import AudPage from "./AudPage";
 import LibPage from "./LibPage";
 import PoolPage from "./PoolPage";
-import Test from "./test/Test";
+import ClassroomPage from "./classroom/ClassroomPage";
+import LibraryPage from "./library/LibraryPage";
+import LandingPage from "./landing/LandingPage";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<LandingPage />} />
         <Route
-          path="/"
+          path="/classroom"
           element={
-            <RoomProvider id="test" initialPresence={{ position: [0, -1, 0] }}>
+            <RoomProvider
+              id="classroom"
+              initialPresence={{ position: [0, -1, 0], name: "Loading..." }}
+            >
               <ClientSideSuspense fallback={<div>Loading...</div>}>
-                {() => <Test />}
+                {() => <ClassroomPage />}
+              </ClientSideSuspense>
+            </RoomProvider>
+          }
+        />
+        <Route
+          path="/library"
+          element={
+            <RoomProvider
+              id="library"
+              initialPresence={{ position: [0, -1, 0], name: "Loading..." }}
+            >
+              <ClientSideSuspense fallback={<div>Loading...</div>}>
+                {() => <LibraryPage />}
               </ClientSideSuspense>
             </RoomProvider>
           }
