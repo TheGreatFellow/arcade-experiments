@@ -16,16 +16,8 @@ import { Sky } from "@react-three/drei";
 
 import "./App.css";
 
-import Ground from "./Ground";
-import Screen from "./Screen";
-import Screen1 from "./Screen1";
-import Billboard from "./Billboard";
-import Stadium from "./Stadiums";
 import { Model as Portal } from "./Nether_portal";
-import { Model as Man1 } from "./Man1";
-import { Model as Man2 } from "./Man2";
-import { Model as Man3 } from "./Man3";
-import { Model as Woman } from "./Woman";
+
 import { Model as Exit } from "./Exit";
 import { Model as Classroom } from "./classroom/Classroom";
 import { useOthers } from "./liveblocks.config.jsx";
@@ -34,6 +26,8 @@ import { CONTRACT_ADDRESS, transformCharacterData } from "./constants";
 import myEpicGame from "./utils/MyEpicGame.json";
 import { ethers } from "ethers";
 import { getAvatar } from "./constants";
+import { Model as Classroom } from "./Classroom";
+import { Model as University } from "./University";
 
 const ArcadeModel = () => {
   const scene = useGLTF("/arcade-v2.glb");
@@ -41,18 +35,6 @@ const ArcadeModel = () => {
 };
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(true);
-  const [currentAccount, setCurrentAccount] = useState(null);
-  const [characterNFT, setCharacterNFT] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [count, setCount] = useState(0);
-  const others = useOthers();
-  const [peerId, setPeerId] = useState("");
-  const [remotePeerIdValue, setRemotePeerIdValue] = useState("");
-  const remoteAudioRef = useRef(null);
-  const peerInstance = useRef(null);
-  const connectedPeers = new Set();
-
   const { id } = useParams();
 
   // const room = new Room({
@@ -145,7 +127,7 @@ function App() {
   return (
     <>
       {/* <audio ref={remoteAudioRef} autoPlay /> */}
-      <Canvas camera={{ position: [0, 2, 4], fov: 55 }}>
+      <Canvas camera={{ position: [-410, 50, 300], fov: 55 }}>
         <Suspense
           fallback={
             <Html>
@@ -153,7 +135,7 @@ function App() {
             </Html>
           }
         >
-          <Classroom />
+          <University scale={200} position={[20, -30, 10]} />
           {/* <Sky sunPosition={[50, 20, 50]} />
           <Stadium scale={70} position={[0, 7, 0]} />
           {others.map(({ connectionId, presence }) => {
@@ -268,10 +250,10 @@ function App() {
         <OrbitControls />
         <pointLight />
         <ambientLight intensity={1} />
-        <group position={[7, -10, -140]}>
-          <Portal scale={5} position={[28, 24, 0]} />
-          <Exit scale={0.008} position={[26, 50.5, 3.7]} />
-          <Html position={[26, 43, 3.7]} transform>
+        <group position={[7, -10, -160]}>
+          <Portal scale={5} position={[-37, 24, 0]} />
+          <Exit scale={0.008} position={[-37, 51.5, 3.7]} />
+          <Html position={[-36, 45, 3.7]} transform>
             <h1
               style={{
                 color: "white",
@@ -283,13 +265,13 @@ function App() {
           </Html>
         </group>
         <group position={[-28, -10, 140]}>
-          <Portal scale={5} position={[28, 24, 0]} />
+          <Portal scale={5} position={[65, 24, 58]} rotation={[0, 3, 0]} />
           <Exit
             scale={0.008}
-            position={[26, 50.5, -3.8]}
+            position={[65, 50.5, 58]}
             rotation={[0, Math.PI, 0]}
           />
-          <Html position={[26, 43, 3.7]} rotation={[0, Math.PI, 0]} transform>
+          <Html position={[65, 43, 58]} rotation={[0, Math.PI, 0]} transform>
             <h1
               style={{
                 color: "white",
@@ -303,17 +285,17 @@ function App() {
         <group position={[230, -10, 20]}>
           <Portal
             scale={5}
-            rotation={[0, Math.PI / 2, 0]}
-            position={[0, 24, -23]}
+            rotation={[0, Math.PI / 2 + 2.7, 0]}
+            position={[-70, 23, 93]}
           />
           <Exit
             scale={0.008}
-            position={[-4, 50.5, -26]}
-            rotation={[0, (3 * Math.PI) / 2, 0]}
+            position={[-70, 50.5, 93]}
+            rotation={[0, (3 * Math.PI) / 2 + 2.7, 0]}
           />
           <Html
-            position={[-4, 43, -26]}
-            rotation={[0, (3 * Math.PI) / 2, 0]}
+            position={[-70, 43, 93]}
+            rotation={[0, (3 * Math.PI) / 2 + 2.7, 0]}
             transform
           >
             <h1
@@ -327,9 +309,13 @@ function App() {
           </Html>
         </group>
         <group position={[-230, -10, 20]} rotation={[0, Math.PI / 2, 0]}>
-          <Portal scale={5} position={[28, 24, 0]} />
-          <Exit scale={0.008} position={[26, 50.5, 3.7]} />
-          <Html position={[26, 43, 3.7]} transform>
+          <Portal scale={5} position={[84, 24, 70]} rotation={[0, 2.9, 0]} />
+          <Exit
+            scale={0.008}
+            position={[84, 50.5, 70]}
+            rotation={[0, 2.9, 0]}
+          />
+          <Html position={[84, 43, 70]} rotation={[0, 2.9, 0]} transform>
             <h1
               style={{
                 color: "white",

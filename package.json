@@ -17,6 +17,9 @@
         "@react-three/rapier": "^0.14.0",
         "@types/three": "^0.144.0",
         "ethers": "^5.7.2",
+        "express": "^4.18.2",
+        "gltfjsx": "^6.1.12",
+        "http": "^0.0.1-security",
         "livekit-client": "^1.6.0",
         "peerjs": "^1.4.7",
         "react": "^18.2.0",
@@ -27,7 +30,9 @@
         "react-tetris": "^0.3.0",
         "three": "^0.146.0",
         "web3": "^1.10.0",
-        "web3-utils": "^1.10.0"
+        "web3-utils": "^1.10.0",
+        "socket.io": "^4.6.1",
+        "socket.io-client": "^4.6.1"
     },
     "devDependencies": {
         "@types/react": "^18.0.22",
