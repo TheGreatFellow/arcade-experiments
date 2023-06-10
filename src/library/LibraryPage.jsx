@@ -54,7 +54,7 @@ function LibraryPage() {
             )
         )}
         <Library scale={6} />
-        <Html occlude transform position={[0, 8, -100]}>
+        <Html occlude="blending" transform position={[0, 8, -100]}>
           <div
             style={{
               display: "flex",
@@ -74,7 +74,7 @@ function LibraryPage() {
             <div style={{ display: "flex" }}>
               <div style={{ textAlign: "center", margin: "0 20px" }}>
                 <img
-                  src="https://www.nepal.ubuy.com/productimg/?image=aHR0cHM6Ly9tLm1lZGlhLWFtYXpvbi5jb20vaW1hZ2VzL0kvNTE0elNaaTRmY0wuX0FDX1NMMTUwMF8uanBn.jpg"
+                  src="https://www.iconpacks.net/icons/1/free-document-icon-901-thumb.png"
                   alt="Image 1"
                   style={{
                     width: "300px",
@@ -83,15 +83,28 @@ function LibraryPage() {
                   }}
                 />
                 <h2 style={{ color: "black" }}>
-                  One Brain: Adapting a single standalone CPU to multiple
-                  form-factor displays
+                  Educational applications of metaverse: possibilities and
+                  limitations
                 </h2>
                 <h3 style={{ color: "black" }}>Pareekshit Joshi</h3>
+                <a
+                  href="https://synapse.koreamed.org/articles/1149230"
+                  target="_blank"
+                  style={{
+                    backgroundColor: "blue",
+                    color: "white",
+                    margin: "0 4px 0 0",
+                    padding: "12px 32px",
+                    borderRadius: "8px",
+                  }}
+                >
+                  Link
+                </a>
                 <button
                   style={{
                     backgroundColor: "green",
                     color: "white",
-                    width: "150px",
+                    width: "100px",
                   }}
                   onClick={() => fund()}
                 >
@@ -100,7 +113,7 @@ function LibraryPage() {
               </div>
               <div style={{ textAlign: "center", margin: "0 20px" }}>
                 <img
-                  src="https://www.nepal.ubuy.com/productimg/?image=aHR0cHM6Ly9tLm1lZGlhLWFtYXpvbi5jb20vaW1hZ2VzL0kvNTE0elNaaTRmY0wuX0FDX1NMMTUwMF8uanBn.jpg"
+                  src="https://www.iconpacks.net/icons/1/free-document-icon-901-thumb.png"
                   alt="Image 2"
                   style={{
                     width: "300px",
@@ -108,21 +121,37 @@ function LibraryPage() {
                     objectFit: "contain",
                   }}
                 />
-                <h2 style={{ color: "black" }}>One Brain</h2>
+                <h2 style={{ color: "black" }}>
+                  Nutbaas: A blockchain-as-a-service platform
+                </h2>
                 <h3 style={{ color: "black" }}>Shreyas Patil</h3>
+                <a
+                  href="https://ieeexplore.ieee.org/iel7/6287639/8600701/08840920.pdf"
+                  target="_blank"
+                  style={{
+                    backgroundColor: "blue",
+                    color: "white",
+                    margin: "0 4px 0 0",
+                    padding: "12px 32px",
+                    borderRadius: "8px",
+                  }}
+                >
+                  Link
+                </a>
                 <button
                   style={{
                     backgroundColor: "green",
                     color: "white",
-                    width: "150px",
+                    width: "100px",
                   }}
+                  onClick={() => fund()}
                 >
                   Fund
                 </button>
               </div>
               <div style={{ textAlign: "center", margin: "0 20px" }}>
                 <img
-                  src="https://www.nepal.ubuy.com/productimg/?image=aHR0cHM6Ly9tLm1lZGlhLWFtYXpvbi5jb20vaW1hZ2VzL0kvNTE0elNaaTRmY0wuX0FDX1NMMTUwMF8uanBn.jpg"
+                  src="https://www.iconpacks.net/icons/1/free-document-icon-901-thumb.png"
                   alt="Image 3"
                   style={{
                     width: "300px",
@@ -130,21 +159,37 @@ function LibraryPage() {
                     objectFit: "contain",
                   }}
                 />
-                <h2 style={{ color: "black" }}>One Brain</h2>
+                <h2 style={{ color: "black" }}>
+                  A governance model for the application of AI in health care
+                </h2>
                 <h3 style={{ color: "black" }}>Ankit Singh</h3>
+                <a
+                  href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7647243/"
+                  target="_blank"
+                  style={{
+                    backgroundColor: "blue",
+                    color: "white",
+                    margin: "0 4px 0 0",
+                    padding: "12px 32px",
+                    borderRadius: "8px",
+                  }}
+                >
+                  Link
+                </a>
                 <button
                   style={{
                     backgroundColor: "green",
                     color: "white",
-                    width: "150px",
+                    width: "100px",
                   }}
+                  onClick={() => fund()}
                 >
                   Fund
                 </button>
               </div>
               <div style={{ textAlign: "center", margin: "0 20px" }}>
                 <img
-                  src="https://www.nepal.ubuy.com/productimg/?image=aHR0cHM6Ly9tLm1lZGlhLWFtYXpvbi5jb20vaW1hZ2VzL0kvNTE0elNaaTRmY0wuX0FDX1NMMTUwMF8uanBn.jpg"
+                  src="https://www.iconpacks.net/icons/1/free-document-icon-901-thumb.png"
                   alt="Image 3"
                   style={{
                     width: "300px",
@@ -152,36 +197,30 @@ function LibraryPage() {
                     objectFit: "contain",
                   }}
                 />
-                <h2 style={{ color: "black" }}>One Brain</h2>
+                <h2 style={{ color: "black" }}>
+                  Neurosymbolic AI: the 3rd wave
+                </h2>
                 <h3 style={{ color: "black" }}>Manu S H</h3>
-                <button
+                <a
+                  href="https://link.springer.com/article/10.1007/s10462-023-10448-w"
+                  target="_blank"
                   style={{
-                    backgroundColor: "green",
+                    backgroundColor: "blue",
                     color: "white",
-                    width: "150px",
+                    margin: "0 4px 0 0",
+                    padding: "12px 32px",
+                    borderRadius: "8px",
                   }}
                 >
-                  Fund
-                </button>
-              </div>
-              <div style={{ textAlign: "center", margin: "0 20px" }}>
-                <img
-                  src="https://www.nepal.ubuy.com/productimg/?image=aHR0cHM6Ly9tLm1lZGlhLWFtYXpvbi5jb20vaW1hZ2VzL0kvNTE0elNaaTRmY0wuX0FDX1NMMTUwMF8uanBn.jpg"
-                  alt="Image 3"
-                  style={{
-                    width: "300px",
-                    height: "200px",
-                    objectFit: "contain",
-                  }}
-                />
-                <h2 style={{ color: "black" }}>One Brain</h2>
-                <h3 style={{ color: "black" }}>Dr. Ramya R S</h3>
+                  Link
+                </a>
                 <button
                   style={{
                     backgroundColor: "green",
                     color: "white",
-                    width: "150px",
+                    width: "100px",
                   }}
+                  onClick={() => fund()}
                 >
                   Fund
                 </button>
