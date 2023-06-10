@@ -17,6 +17,7 @@
         "@react-three/rapier": "^0.14.0",
         "@react-three/xr": "^5.5.0",
         "@types/three": "^0.144.0",
+        "esbuild": "^0.13.4",
         "ethers": "^5.7.2",
         "express": "^4.18.2",
         "gltfjsx": "^6.1.12",
