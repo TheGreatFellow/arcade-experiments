@@ -26,7 +26,10 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           element={
             <RoomProvider
               id="classroom"
-              initialPresence={{ position: [0, -1, 0], name: "Loading..." }}
+              initialPresence={{
+                position: [0, -1, 0],
+                name: localStorage.getItem("playerName"),
+              }}
             >
               <ClientSideSuspense fallback={<div>Loading...</div>}>
                 {() => <ClassroomPage />}
@@ -39,7 +42,10 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           element={
             <RoomProvider
               id="library"
-              initialPresence={{ position: [0, -1, 0], name: "Loading..." }}
+              initialPresence={{
+                position: [0, -1, 0],
+                name: localStorage.getItem("playerName"),
+              }}
             >
               <ClientSideSuspense fallback={<div>Loading...</div>}>
                 {() => <LibraryPage />}

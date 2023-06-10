@@ -21,7 +21,7 @@ export function Model(props) {
   const updateMyPresense = useUpdateMyPresence();
   const [accountName, setAccountName] = useState("Loading...");
 
-  const callback = props.callback;
+  // const callback = props.callback;
   const index = props.index;
 
   useEffect(() => {
@@ -29,21 +29,9 @@ export function Model(props) {
     getAccountName();
   }, [actions]);
 
-  useFrame(() => {
-    const others = callback();
-    // console.log(others);
-    if (others && others[index] && others[index].presense) {
-      console.log("Inside");
-      group.current.position.x = others[index].position[0];
-      group.current.position.y = others[index].position[1];
-      group.current.position.z = others[index].position[2];
-    }
-  });
-
   const getAccountName = async () => {
     try {
       setAccountName(localStorage.getItem("playerName"));
-      console.log(accountName);
     } catch (error) {
       console.error(error);
     }
@@ -56,10 +44,13 @@ export function Model(props) {
       dispose={null}
       rotation={[0, 0, 0]}
       onUpdate={(self) => {
-        return updateMyPresense({
-          position: [self.position.x, -1, self.position.z],
-          name: accountName,
-        });
+        if (self.position.x != 0) {
+          console.log(accountName);
+          return updateMyPresense({
+            position: [self.position.x, -1, self.position.z],
+            name: "Pj",
+          });
+        }
       }}
     >
       <group name="Scene">

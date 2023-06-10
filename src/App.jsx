@@ -26,7 +26,7 @@ import { CONTRACT_ADDRESS, transformCharacterData } from "./constants";
 import myEpicGame from "./utils/MyEpicGame.json";
 import { ethers } from "ethers";
 import { getAvatar } from "./constants";
-import { Model as Classroom } from "./Classroom";
+// import { Model as Classroom } from "./Classroom";
 import { Model as University } from "./University";
 
 const ArcadeModel = () => {

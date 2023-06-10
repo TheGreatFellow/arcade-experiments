@@ -10,11 +10,6 @@ import NameTag from "../NameTag";
 
 function LibraryPage() {
   const others = useOthers();
-  const [numberOfPlayers, setNumberOfPlayers] = useState(0);
-
-  if (others && numberOfPlayers != others.length) {
-    setNumberOfPlayers(others.length);
-  }
 
   const fund = async () => {
     if (window.ethereum) {
@@ -47,23 +42,17 @@ function LibraryPage() {
     <Canvas>
       <Suspense>
         <Man1 scale={5} isPlaying={true} />
-        {Array.from({ length: numberOfPlayers }).map((_, index) => (
-          <group key={index}>
-            <Man scale={5} callback={() => others} index={index} />
-            {/* <NameTag position={[0, 9.2, 0]} name={presence.name} /> */}
-          </group>
-        ))}
-        {/* {otherPlayers.current.map(
+
+        {others.map(
           ({ connectionId, presence }) =>
             presence.position &&
-            presence.name &&
-            presence.position[0] != 0 && (
+            presence.name && (
               <group key={connectionId} position={presence.position}>
                 <Man scale={5} val={presence.position} />
                 <NameTag position={[0, 9.2, 0]} name={presence.name} />
               </group>
             )
-        )} */}
+        )}
         <Library scale={6} />
         <Html occlude transform position={[0, 8, -100]}>
           <div
