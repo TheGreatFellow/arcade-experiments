@@ -54,7 +54,7 @@ function LibraryPage() {
             )
         )}
         <Library scale={6} />
-        <Html occlude="blending" transform position={[0, 8, -100]}>
+        <Html occlude transform position={[0, 8, -100]}>
           <div
             style={{
               display: "flex",
