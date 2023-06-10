@@ -12,10 +12,15 @@ function ClassroomPage() {
     <Canvas>
       <Suspense>
         <Man1 scale={5} position={[0, -1, 0]} isPlaying={true} />
-        {others.map(({ connectionId, presence }) =>
-          presence.position ? (
-            <Man key={connectionId} scale={5} position={presence.position} />
-          ) : null
+        {others.map(
+          ({ connectionId, presence }) =>
+            presence.position &&
+            presence.name && (
+              <group key={connectionId} position={presence.position}>
+                <Man scale={5} val={presence.position} />
+                <NameTag position={[0, 9.2, 0]} name={presence.name} />
+              </group>
+            )
         )}
         <Classroom scale={3} />
       </Suspense>
